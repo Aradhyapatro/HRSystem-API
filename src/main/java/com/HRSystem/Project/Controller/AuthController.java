@@ -14,6 +14,8 @@ import com.HRSystem.Project.DTO.LoginDTO;
 import com.HRSystem.Project.DTO.RegisterDTO;
 import com.HRSystem.Project.Service.JwtService;
 import com.HRSystem.Project.Service.authService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -23,12 +25,11 @@ public class AuthController {
 	@Autowired
 	private JwtService jwt;
 	
-    @Value("${spring.datasource.url}")
-    private String url;
+	Logger logger = LoggerFactory.getLogger(AuthController.class);
 	
 	@GetMapping("/")
 	public String get() {
-		return "Congratulations!!"+url;
+		return "Congratulations!!";
 	}
 
 	
@@ -46,9 +47,9 @@ public class AuthController {
 
 	@PostMapping("/Login")
 	public  ResponseEntity<?> login(@RequestBody LoginDTO Login) throws Exception {
-		System.out.println("Aradhya here");
+		logger.debug("Aradhya here "+Login);
 		ResponseEntity<String> res = auth.loginService(Login);
-		System.out.println(res+" Arya "+Login);
+		logger.debug(res+" Arya "+Login);
 		
 		if(res.getStatusCode().is2xxSuccessful()) {
 			String token = jwt.generateToken(Login.getUsername());
