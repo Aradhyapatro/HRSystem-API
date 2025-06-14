@@ -23,12 +23,12 @@ public class AuthController {
 	@Autowired
 	private JwtService jwt;
 	
-    @Value("${jwt.secret}")
-    private String secret;
+    @Value("${spring.datasource.url}")
+    private String url;
 	
 	@GetMapping("/")
 	public String get() {
-		return "Congratulations!!"+secret;
+		return "Congratulations!!"+url;
 	}
 
 	
