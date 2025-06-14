@@ -54,7 +54,7 @@ public class SecurityConfig {
 	                CorsConfiguration cfg = new CorsConfiguration();
 	                cfg.setAllowedOrigins(Arrays.asList("*"));
 	                cfg.setAllowedMethods(Collections.singletonList("*"));
-	                cfg.setAllowCredentials(true);
+	                cfg.setAllowCredentials(false);
 	                cfg.setAllowedHeaders(Collections.singletonList("*"));
 	                cfg.setExposedHeaders(Arrays.asList("Authorization", "Content-Disposition"));
 	                cfg.setMaxAge(3600L);
