@@ -46,17 +46,16 @@ public class AuthController {
 
 	@PostMapping("/Login")
 	public  ResponseEntity<?> login(@RequestBody LoginDTO Login) throws Exception {
-		System.out.println("Aradhya here");
-		ResponseEntity<String> res = auth.loginService(Login);
-		System.out.println(res+" Arya "+Login);
-		
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body("Aradhya testing");
+
+		/*ResponseEntity<String> res = auth.loginService(Login);
+
 		if(res.getStatusCode().is2xxSuccessful()) {
 			String token = jwt.generateToken(Login.getUsername());
-			System.out.println(token+" endshere");
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(token);
 		}
 		
-		throw new Exception("Error in Login");
+		throw new Exception("Error in Login");*/
 	}
 	
 	@GetMapping("/getRole")
