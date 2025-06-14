@@ -48,9 +48,11 @@ public class AuthController {
 	public  ResponseEntity<?> login(@RequestBody LoginDTO Login) throws Exception {
 		
 		ResponseEntity<String> res = auth.loginService(Login);
+		System.out.println(res+" "+Login);
 		
 		if(res.getStatusCode().is2xxSuccessful()) {
 			String token = jwt.generateToken(Login.getUsername());
+			System.out.println(token);
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(token);
 		}
 		
