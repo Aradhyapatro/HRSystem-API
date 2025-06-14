@@ -46,13 +46,13 @@ public class AuthController {
 
 	@PostMapping("/Login")
 	public  ResponseEntity<?> login(@RequestBody LoginDTO Login) throws Exception {
-		
+		System.out.println("Aradhya here");
 		ResponseEntity<String> res = auth.loginService(Login);
-		System.out.println(res+" "+Login);
+		System.out.println(res+" Arya "+Login);
 		
 		if(res.getStatusCode().is2xxSuccessful()) {
 			String token = jwt.generateToken(Login.getUsername());
-			System.out.println(token);
+			System.out.println(token+" endshere");
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(token);
 		}
 		
