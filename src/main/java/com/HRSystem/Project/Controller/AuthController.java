@@ -46,7 +46,7 @@ public class AuthController {
 
 	@PostMapping("/Login")
 	public  ResponseEntity<?> login(@RequestBody LoginDTO Login) throws Exception {
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body("Aradhya testing");
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(Login);
 
 		/*ResponseEntity<String> res = auth.loginService(Login);
 
