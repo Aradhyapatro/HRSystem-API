@@ -1,0 +1,70 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+
+# Logs
+logs/
+*.log
+
+# Spring Boot specific
+*.jar
+*.war
+*.iml
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# IDEs
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+target/
+
+# VS Code
+.vscode/
+
+# Test output
+/test-output/
+
+# Node modules (if frontend is inside)
+node_modules/
+build/
+dist/
+
+# Environment & secrets
+.env
+application.properties
+application.yml
+application-dev.properties
+application-prod.properties
+
+# Database files (optional)
+*.h2.db
+*.mv.db
+*.trace.db
+
+# Coverage reports
+coverage/
+*.exec
+
+# JetBrains Rider
+.idea/
+
+# Backup files
+*.bak
+*.swp
+*.tmp
+*~
