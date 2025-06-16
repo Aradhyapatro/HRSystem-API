@@ -1,7 +1,7 @@
 package com.HRSystem.Project.Controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.HRSystem.Project.DTO.LoginDTO;
 import com.HRSystem.Project.DTO.RegisterDTO;
 import com.HRSystem.Project.Service.JwtService;
+import java.io.IOException;
+import java.net.Socket;
 import com.HRSystem.Project.Service.authService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,5 +79,15 @@ public class AuthController {
 	public ResponseEntity<?> onboardingEmp(@RequestBody RegisterDTO item){
 		auth.onboarding(item);
 		return ResponseEntity.ok("Employee Onboarded Department to be assigned");
+	}
+	
+	@GetMapping("/smtp-test")
+	public String testSmtpConnection() {
+	    try (Socket socket = new Socket("smtp.gmail.com", 587)) {
+	        return "SMTP port is open!";
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return "SMTP port blocked or unreachable: " + e.getMessage();
+	    }
 	}
 }
